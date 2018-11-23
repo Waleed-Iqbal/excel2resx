@@ -40,7 +40,7 @@ namespace ResxFileFromExcel
             }
             else
             {
-                MessageBox.Show("Not a valid input excel file");
+                MessageBox.Show(Constants.INVALID_INPUT_FILE_PATH_ERROR);
                 tb_input_excel_path.Text = string.Empty;
             }
         }
@@ -53,12 +53,10 @@ namespace ResxFileFromExcel
             }
             else
             {
-                MessageBox.Show("Not a valid output folder");
+                MessageBox.Show(Constants.INVALID_OUTPUT_DIRECTORY_PATH_ERROR);
                 tb_output_resx_path.Text = string.Empty;
             }
         }
-
-
 
         private void BrowseInputFile_Click(object sender, EventArgs e)
         {
@@ -87,7 +85,10 @@ namespace ResxFileFromExcel
 
         private void Generate_resx_Click(object sender, EventArgs e)
         {
-
+            if (InputValidations.IsExcelSheetInRightFormat(tb_input_excel_path.Text))
+            {
+                ResxGenerator.Generate(tb_input_excel_path.Text);
+            }
         }
     }
 }
