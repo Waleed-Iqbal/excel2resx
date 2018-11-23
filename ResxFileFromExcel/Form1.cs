@@ -19,6 +19,14 @@ namespace ResxFileFromExcel
             btn_Generate_resx.Enabled = false;
         }
 
+        private void EnableGenerateButton()
+        {
+            if (InputValidations.AreInputsValid())
+            {
+                btn_Generate_resx.Enabled = true;
+            }
+        }
+
         private void resxGenerator_Load(object sender, EventArgs e)
         {
 
@@ -26,19 +34,34 @@ namespace ResxFileFromExcel
 
         private void input_excel_path_TextChanged(object sender, EventArgs e)
         {
-            // do validation here
+            if(InputValidations.IsInputExcelFilePathValid(tb_input_excel_path.Text))
+            {
+                EnableGenerateButton();
+            }
+            else
+            {
+                MessageBox.Show("Not a valid input excel file");
+                tb_input_excel_path.Text = string.Empty;
+            }
         }
 
         private void output_resx_path_TextChanged(object sender, EventArgs e)
         {
-            // do validation here
+            if (InputValidations.IsOutputFolderPathValid(tb_output_resx_path.Text))
+            {
+                EnableGenerateButton();
+            }
+            else
+            {
+                MessageBox.Show("Not a valid output folder");
+                tb_output_resx_path.Text = string.Empty;
+            }
         }
 
-       
+
 
         private void BrowseInputFile_Click(object sender, EventArgs e)
         {
-
             using (OpenFileDialog selectFileDialog = new OpenFileDialog())
             {
                 if (selectFileDialog.ShowDialog() == DialogResult.OK)
