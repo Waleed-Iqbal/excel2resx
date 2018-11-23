@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,21 +12,26 @@ namespace ResxFileFromExcel
         private static bool isCorrectInputFilePathGiven = false;
         private static bool isCorrectOutputFolderPathGiven = false;
 
-        public static bool IsInputExcelFilePathValid()
+        public static bool IsInputExcelFilePathValid(string path)
         {
-            isCorrectInputFilePathGiven = false;
+            isCorrectInputFilePathGiven = File.Exists(path);
 
             return isCorrectInputFilePathGiven;
         }
 
 
-        public static bool IsOutputFolderPathValid()
+        public static bool IsOutputFolderPathValid(string path)
         {
-            isCorrectOutputFolderPathGiven = false;
+            isCorrectOutputFolderPathGiven = Directory.Exists(path);
 
             return isCorrectOutputFolderPathGiven;
         }
 
+
+        public static bool AreInputsValid()
+        {
+            return isCorrectInputFilePathGiven && isCorrectOutputFolderPathGiven;
+        }
 
 
     }
