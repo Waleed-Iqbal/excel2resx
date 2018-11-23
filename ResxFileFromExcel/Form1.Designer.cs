@@ -279,6 +279,7 @@ namespace ResxFileFromExcel
             this.cb_SelectAll.TabIndex = 18;
             this.cb_SelectAll.Text = "Select All";
             this.cb_SelectAll.UseVisualStyleBackColor = true;
+            this.cb_SelectAll.CheckedChanged += new System.EventHandler(this.cb_SelectAll_CheckedChanged);
             // 
             // lbl_GenerationLog
             // 

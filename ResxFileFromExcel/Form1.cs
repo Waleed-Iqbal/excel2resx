@@ -94,5 +94,10 @@ namespace ResxFileFromExcel
                 MessageBox.Show(Constants.INVALID_INPUT_FILE_ERROR);
             }
         }
+
+        private void cb_SelectAll_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
