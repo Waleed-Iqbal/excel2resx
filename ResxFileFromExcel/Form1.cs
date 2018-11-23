@@ -97,6 +97,18 @@ namespace ResxFileFromExcel
 
         private void cb_SelectAll_CheckedChanged(object sender, EventArgs e)
         {
+            InputValidations.areAllLanguagesSelected = cb_SelectAll.Checked;
+
+            cb_Dutch.Checked = InputValidations.areAllLanguagesSelected;
+            cb_Greek.Checked = InputValidations.areAllLanguagesSelected;
+            cb_French.Checked = InputValidations.areAllLanguagesSelected;
+            cb_German.Checked = InputValidations.areAllLanguagesSelected;
+            cb_English.Checked = InputValidations.areAllLanguagesSelected;
+            cb_Italian.Checked = InputValidations.areAllLanguagesSelected;
+            cb_Spanish.Checked = InputValidations.areAllLanguagesSelected;
+            cb_Swedish.Checked = InputValidations.areAllLanguagesSelected;
+            cb_Norwegian.Checked = InputValidations.areAllLanguagesSelected;
+            cb_Portuguese.Checked = InputValidations.areAllLanguagesSelected;
 
         }
     }
