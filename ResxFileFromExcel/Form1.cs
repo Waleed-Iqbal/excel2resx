@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace ResxFileFromExcel
 {
-    public partial class Form1 : Form
+    public partial class resxGenerator : Form
     {
-        public Form1()
+        public resxGenerator()
         {
             InitializeComponent();
+        }
+
+        private void OutputResxFilePath_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void InputExcelFilePath_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
