@@ -12,6 +12,10 @@ namespace ResxFileFromExcel
 {
     public partial class resxGenerator : Form
     {
+
+        public bool isCorrectInputPathGiven = false;
+        public bool isCorrectOutputPathGiven = false;
+
         public resxGenerator()
         {
             InitializeComponent();
@@ -25,6 +29,23 @@ namespace ResxFileFromExcel
         private void InputExcelFilePath_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Generate_resx_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void input_excel_path_TextChanged(object sender, EventArgs e)
+        {
+            // do validation here
+            isCorrectInputPathGiven = true;
+        }
+
+        private void output_resx_path_TextChanged(object sender, EventArgs e)
+        {
+            // do validation here
+            isCorrectOutputPathGiven = true;
         }
     }
 }
