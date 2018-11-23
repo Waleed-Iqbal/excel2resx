@@ -11,6 +11,7 @@ namespace ResxFileFromExcel
     {
         private static bool isCorrectInputFilePathGiven = false;
         private static bool isCorrectOutputFolderPathGiven = false;
+        public static bool areAllLanguagesSelected = false;
 
         public static bool IsInputExcelFilePathValid(string path)
         {
