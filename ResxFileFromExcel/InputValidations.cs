@@ -34,5 +34,12 @@ namespace ResxFileFromExcel
         }
 
 
+        public static bool IsExcelSheetInRightFormat(string path)
+        {
+            bool isFileInValidFormat = false;
+
+            return isFileInValidFormat;
+        }
+
     }
 }
