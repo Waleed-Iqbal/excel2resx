@@ -89,6 +89,10 @@ namespace ResxFileFromExcel
             {
                 ResxGenerator.Generate(tb_input_excel_path.Text);
             }
+            else
+            {
+                MessageBox.Show(Constants.INVALID_INPUT_FILE_ERROR);
+            }
         }
     }
 }
