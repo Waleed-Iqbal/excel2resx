@@ -74,11 +74,11 @@ namespace ResxFileFromExcel
             // OutputResxFilePath
             // 
             this.OutputResxFilePath.AutoSize = true;
-            this.OutputResxFilePath.Location = new System.Drawing.Point(15, 86);
+            this.OutputResxFilePath.Location = new System.Drawing.Point(18, 86);
             this.OutputResxFilePath.Name = "OutputResxFilePath";
-            this.OutputResxFilePath.Size = new System.Drawing.Size(108, 13);
+            this.OutputResxFilePath.Size = new System.Drawing.Size(120, 13);
             this.OutputResxFilePath.TabIndex = 3;
-            this.OutputResxFilePath.Text = "Output: resx File Path";
+            this.OutputResxFilePath.Text = "Output: resx Files Folder";
             // 
             // tb_output_resx_path
             // 
@@ -104,7 +104,7 @@ namespace ResxFileFromExcel
             // btn_BrowseInputFile
             // 
             this.btn_BrowseInputFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_BrowseInputFile.Location = new System.Drawing.Point(330, 47);
+            this.btn_BrowseInputFile.Location = new System.Drawing.Point(330, 46);
             this.btn_BrowseInputFile.Name = "btn_BrowseInputFile";
             this.btn_BrowseInputFile.Size = new System.Drawing.Size(75, 23);
             this.btn_BrowseInputFile.TabIndex = 6;
@@ -115,7 +115,7 @@ namespace ResxFileFromExcel
             // btn_BrowseForOutput
             // 
             this.btn_BrowseForOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_BrowseForOutput.Location = new System.Drawing.Point(331, 111);
+            this.btn_BrowseForOutput.Location = new System.Drawing.Point(331, 110);
             this.btn_BrowseForOutput.Name = "btn_BrowseForOutput";
             this.btn_BrowseForOutput.Size = new System.Drawing.Size(75, 23);
             this.btn_BrowseForOutput.TabIndex = 7;
