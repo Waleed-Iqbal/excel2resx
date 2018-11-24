@@ -9,9 +9,10 @@ namespace ResxFileFromExcel
 {
     public static class InputValidations
     {
+        public static bool IsLanguageSelected = false;
+        public static bool AreAllLanguagesSelected = false;
         private static bool isCorrectInputFilePathGiven = false;
         private static bool isCorrectOutputFolderPathGiven = false;
-        public static bool areAllLanguagesSelected = false;
 
         public static bool IsInputExcelFilePathValid(string path)
         {
