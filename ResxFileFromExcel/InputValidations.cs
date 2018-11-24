@@ -9,30 +9,31 @@ namespace ResxFileFromExcel
 {
     public static class InputValidations
     {
-        public static bool IsLanguageSelected = false;
+        public static bool IsALanguageSelected = false;
         public static bool AreAllLanguagesSelected = false;
-        private static bool isCorrectInputFilePathGiven = false;
-        private static bool isCorrectOutputFolderPathGiven = false;
+
+        private static bool IsCorrectInputFilePathGiven = false;
+        private static bool IsCorrectOutputFolderPathGiven = false;
 
         public static bool IsInputExcelFilePathValid(string path)
         {
-            isCorrectInputFilePathGiven = File.Exists(path);
+            IsCorrectInputFilePathGiven = File.Exists(path);
 
-            return isCorrectInputFilePathGiven;
+            return IsCorrectInputFilePathGiven;
         }
 
 
         public static bool IsOutputFolderPathValid(string path)
         {
-            isCorrectOutputFolderPathGiven = Directory.Exists(path);
+            IsCorrectOutputFolderPathGiven = Directory.Exists(path);
 
-            return isCorrectOutputFolderPathGiven;
+            return IsCorrectOutputFolderPathGiven;
         }
 
 
         public static bool AreInputsValid()
         {
-            return isCorrectInputFilePathGiven && isCorrectOutputFolderPathGiven;
+            return IsCorrectInputFilePathGiven && IsCorrectOutputFolderPathGiven;
         }
 
 
