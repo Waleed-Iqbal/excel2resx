@@ -30,6 +30,7 @@ namespace ResxFileFromExcel
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(resxGenerator));
             this.btn_Generate_resx = new System.Windows.Forms.Button();
             this.tb_input_excel_path = new System.Windows.Forms.TextBox();
             this.InputExcelFilePath = new System.Windows.Forms.Label();
@@ -148,6 +149,7 @@ namespace ResxFileFromExcel
             this.cb_Greek.TabIndex = 8;
             this.cb_Greek.Text = "Greek";
             this.cb_Greek.UseVisualStyleBackColor = true;
+            this.cb_Greek.CheckedChanged += new System.EventHandler(this.cb_Greek_CheckedChanged);
             // 
             // cb_Dutch
             // 
@@ -158,6 +160,7 @@ namespace ResxFileFromExcel
             this.cb_Dutch.TabIndex = 9;
             this.cb_Dutch.Text = "Dutch";
             this.cb_Dutch.UseVisualStyleBackColor = true;
+            this.cb_Dutch.CheckedChanged += new System.EventHandler(this.cb_Dutch_CheckedChanged);
             // 
             // cb_German
             // 
@@ -168,6 +171,7 @@ namespace ResxFileFromExcel
             this.cb_German.TabIndex = 10;
             this.cb_German.Text = "German";
             this.cb_German.UseVisualStyleBackColor = true;
+            this.cb_German.CheckedChanged += new System.EventHandler(this.cb_German_CheckedChanged);
             // 
             // cb_French
             // 
@@ -178,6 +182,7 @@ namespace ResxFileFromExcel
             this.cb_French.TabIndex = 11;
             this.cb_French.Text = "French";
             this.cb_French.UseVisualStyleBackColor = true;
+            this.cb_French.CheckedChanged += new System.EventHandler(this.cb_French_CheckedChanged);
             // 
             // cb_English
             // 
@@ -188,6 +193,7 @@ namespace ResxFileFromExcel
             this.cb_English.TabIndex = 12;
             this.cb_English.Text = "English";
             this.cb_English.UseVisualStyleBackColor = true;
+            this.cb_English.CheckedChanged += new System.EventHandler(this.cb_English_CheckedChanged);
             // 
             // cb_Spanish
             // 
@@ -198,6 +204,7 @@ namespace ResxFileFromExcel
             this.cb_Spanish.TabIndex = 13;
             this.cb_Spanish.Text = "Spanish";
             this.cb_Spanish.UseVisualStyleBackColor = true;
+            this.cb_Spanish.CheckedChanged += new System.EventHandler(this.cb_Spanish_CheckedChanged);
             // 
             // cb_Swedish
             // 
@@ -208,6 +215,7 @@ namespace ResxFileFromExcel
             this.cb_Swedish.TabIndex = 14;
             this.cb_Swedish.Text = "Swedish";
             this.cb_Swedish.UseVisualStyleBackColor = true;
+            this.cb_Swedish.CheckedChanged += new System.EventHandler(this.cb_Swedish_CheckedChanged);
             // 
             // cb_Italian
             // 
@@ -218,6 +226,7 @@ namespace ResxFileFromExcel
             this.cb_Italian.TabIndex = 15;
             this.cb_Italian.Text = "Italian";
             this.cb_Italian.UseVisualStyleBackColor = true;
+            this.cb_Italian.CheckedChanged += new System.EventHandler(this.cb_Italian_CheckedChanged);
             // 
             // cb_Norwegian
             // 
@@ -228,6 +237,7 @@ namespace ResxFileFromExcel
             this.cb_Norwegian.TabIndex = 16;
             this.cb_Norwegian.Text = "Norwegian";
             this.cb_Norwegian.UseVisualStyleBackColor = true;
+            this.cb_Norwegian.CheckedChanged += new System.EventHandler(this.cb_Norwegian_CheckedChanged);
             // 
             // cb_Portuguese
             // 
@@ -238,6 +248,7 @@ namespace ResxFileFromExcel
             this.cb_Portuguese.TabIndex = 17;
             this.cb_Portuguese.Text = "Portuguese";
             this.cb_Portuguese.UseVisualStyleBackColor = true;
+            this.cb_Portuguese.CheckedChanged += new System.EventHandler(this.cb_Portuguese_CheckedChanged);
             // 
             // gb_SelectLanguages
             // 
@@ -305,6 +316,7 @@ namespace ResxFileFromExcel
             this.Controls.Add(this.InputExcelFilePath);
             this.Controls.Add(this.tb_input_excel_path);
             this.Controls.Add(this.btn_Generate_resx);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(220, 400);
             this.Name = "resxGenerator";
             this.Text = "resx Generator";
