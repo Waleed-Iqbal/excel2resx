@@ -20,15 +20,15 @@ namespace ResxFileFromExcel
         public const string Portuguese = "pt";
 
         //TODO: use the int logic here ... LOOK IT UP
-        public const bool IsGreekSelected = false;
-        public const bool IsDutchSelected = false;
-        public const bool IsGermanSelected = false;
-        public const bool IsFrenchSelected = false;
-        public const bool IsEnglishSelected = false;
-        public const bool IsSpanishSelected = false;
-        public const bool IsSwedishSelected = false;
-        public const bool IsItalianSelected = false;
-        public const bool IsNorwegianSelected = false;
-        public const bool IsPortugueseSelected = false;
+        public static bool GreekSelected = false;
+        public static bool DutchSelected = false;
+        public static bool GermanSelected = false;
+        public static bool FrenchSelected = false;
+        public static bool EnglishSelected = false;
+        public static bool SpanishSelected = false;
+        public static bool SwedishSelected = false;
+        public static bool ItalianSelected = false;
+        public static bool NorwegianSelected = false;
+        public static bool PortugueseSelected = false;
     }
 }
