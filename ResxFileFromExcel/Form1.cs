@@ -85,7 +85,7 @@ namespace ResxFileFromExcel
 
         private void Generate_resx_Click(object sender, EventArgs e)
         {
-            if (InputValidations.IsExcelSheetInRightFormat(tb_input_excel_path.Text))
+            if (InputValidations.IsExcelSheetInRightFormat(tb_input_excel_path.Text) && InputValidations.IsLanguageSelected)
             {
                 ResxGenerator.Generate(tb_input_excel_path.Text);
             }
@@ -97,19 +97,99 @@ namespace ResxFileFromExcel
 
         private void cb_SelectAll_CheckedChanged(object sender, EventArgs e)
         {
-            InputValidations.areAllLanguagesSelected = cb_SelectAll.Checked;
+            InputValidations.AreAllLanguagesSelected = cb_SelectAll.Checked;
 
-            cb_Dutch.Checked = InputValidations.areAllLanguagesSelected;
-            cb_Greek.Checked = InputValidations.areAllLanguagesSelected;
-            cb_French.Checked = InputValidations.areAllLanguagesSelected;
-            cb_German.Checked = InputValidations.areAllLanguagesSelected;
-            cb_English.Checked = InputValidations.areAllLanguagesSelected;
-            cb_Italian.Checked = InputValidations.areAllLanguagesSelected;
-            cb_Spanish.Checked = InputValidations.areAllLanguagesSelected;
-            cb_Swedish.Checked = InputValidations.areAllLanguagesSelected;
-            cb_Norwegian.Checked = InputValidations.areAllLanguagesSelected;
-            cb_Portuguese.Checked = InputValidations.areAllLanguagesSelected;
+            cb_Dutch.Checked = InputValidations.AreAllLanguagesSelected;
+            cb_Greek.Checked = InputValidations.AreAllLanguagesSelected;
+            cb_French.Checked = InputValidations.AreAllLanguagesSelected;
+            cb_German.Checked = InputValidations.AreAllLanguagesSelected;
+            cb_English.Checked = InputValidations.AreAllLanguagesSelected;
+            cb_Italian.Checked = InputValidations.AreAllLanguagesSelected;
+            cb_Spanish.Checked = InputValidations.AreAllLanguagesSelected;
+            cb_Swedish.Checked = InputValidations.AreAllLanguagesSelected;
+            cb_Norwegian.Checked = InputValidations.AreAllLanguagesSelected;
+            cb_Portuguese.Checked = InputValidations.AreAllLanguagesSelected;
 
         }
+
+
+
+        #region Language Check Boxes Handlers
+        private void UpdateLanguageSelection()
+        {
+            InputValidations.IsLanguageSelected = cb_Dutch.Checked ||
+              cb_Greek.Checked ||
+              cb_French.Checked ||
+              cb_German.Checked ||
+              cb_English.Checked ||
+              cb_Italian.Checked ||
+              cb_Spanish.Checked ||
+              cb_Swedish.Checked ||
+              cb_Norwegian.Checked ||
+              cb_Portuguese.Checked;
+
+            InputValidations.AreAllLanguagesSelected = cb_Dutch.Checked &&
+              cb_Greek.Checked &&
+              cb_French.Checked &&
+              cb_German.Checked &&
+              cb_English.Checked &&
+              cb_Italian.Checked &&
+              cb_Spanish.Checked &&
+              cb_Swedish.Checked &&
+              cb_Norwegian.Checked &&
+              cb_Portuguese.Checked;
+        }
+
+        private void cb_Dutch_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateLanguageSelection();
+        }
+
+        private void cb_English_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateLanguageSelection();
+        }
+
+        private void cb_French_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateLanguageSelection();
+        }
+
+        private void cb_German_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateLanguageSelection();
+        }
+
+        private void cb_Italian_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateLanguageSelection();
+        }
+
+        private void cb_Norwegian_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateLanguageSelection();
+        }
+
+        private void cb_Portuguese_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateLanguageSelection();
+        }
+
+        private void cb_Spanish_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateLanguageSelection();
+        }
+
+        private void cb_Swedish_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateLanguageSelection();
+        }
+
+        private void cb_Greek_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateLanguageSelection();
+        }
+        #endregion Language Check Boxes Handler
+
     }
 }
