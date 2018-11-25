@@ -31,7 +31,7 @@ namespace ResxFileFromExcel
         }
 
 
-        public static bool AreInputsValid()
+        public static bool ArePathsInputsValid()
         {
             return IsCorrectInputFilePathGiven && IsCorrectOutputFolderPathGiven;
         }

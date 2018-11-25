@@ -21,10 +21,7 @@ namespace ResxFileFromExcel
 
         private void EnableGenerateButton()
         {
-            if (InputValidations.AreInputsValid())
-            {
-                btn_Generate_resx.Enabled = true;
-            }
+            btn_Generate_resx.Enabled = InputValidations.ArePathsInputsValid() && IsAtleastOneLanguageSelected();
         }
 
         private void resxGenerator_Load(object sender, EventArgs e)
@@ -135,15 +132,9 @@ namespace ResxFileFromExcel
             InputValidations.IsALanguageSelected = IsAtleastOneLanguageSelected();
             InputValidations.AreAllLanguagesSelected = AreAllLanguagesSelected();
 
-            //if (!InputValidations.AreAllLanguagesSelected && cb_SelectAll.Checked)
-            //{
-            //    InputValidations.IsOnlyOneLanguageUnselected = true;
-            //    cb_SelectAll.Checked = false;
-            //}
-            //else
             selectAllChangeAfterLanguageUpdate = true;
             cb_SelectAll.Checked = InputValidations.AreAllLanguagesSelected;
-
+            EnableGenerateButton();
         }
 
         private void cb_SelectAll_CheckedChanged(object sender, EventArgs e)
