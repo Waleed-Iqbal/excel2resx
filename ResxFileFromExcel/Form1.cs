@@ -92,10 +92,38 @@ namespace ResxFileFromExcel
             }
         }
 
-
-
-
         #region Language Check Boxes Handlers
+        private void UpdateAllLanguagesSelection(bool? state)
+        {
+            if (state == null)
+            {
+                cb_Dutch.Checked = SupportedLangues.DutchSelected;
+                cb_Greek.Checked = SupportedLangues.GreekSelected;
+                cb_French.Checked = SupportedLangues.FrenchSelected;
+                cb_German.Checked = SupportedLangues.GermanSelected;
+                cb_English.Checked = SupportedLangues.EnglishSelected;
+                cb_Italian.Checked = SupportedLangues.ItalianSelected;
+                cb_Spanish.Checked = SupportedLangues.SpanishSelected;
+                cb_Swedish.Checked = SupportedLangues.SwedishSelected;
+                cb_Norwegian.Checked = SupportedLangues.NorwegianSelected;
+                cb_Portuguese.Checked = SupportedLangues.PortugueseSelected;
+            }
+            else
+            {
+
+                cb_Dutch.Checked = (bool)state;
+                cb_Greek.Checked = (bool)state;
+                cb_French.Checked = (bool)state;
+                cb_German.Checked = (bool)state;
+                cb_English.Checked = (bool)state;
+                cb_Italian.Checked = (bool)state;
+                cb_Spanish.Checked = (bool)state;
+                cb_Swedish.Checked = (bool)state;
+                cb_Norwegian.Checked = (bool)state;
+                cb_Portuguese.Checked = (bool)state;
+            }
+        }
+
         private bool IsAtleastOneLanguageSelected()
         {
             return cb_Dutch.Checked ||
@@ -124,7 +152,6 @@ namespace ResxFileFromExcel
               cb_Portuguese.Checked;
         }
 
-
         private bool selectAllChangeAfterLanguageUpdate = false;
 
         private void UpdateLanguageSelection()
@@ -142,58 +169,29 @@ namespace ResxFileFromExcel
             if (selectAllChangeAfterLanguageUpdate && InputValidations.AreAllLanguagesSelected && !cb_SelectAll.Checked)
             {
                 selectAllChangeAfterLanguageUpdate = false;
-                cb_Dutch.Checked = false;
-                cb_Greek.Checked = false;
-                cb_French.Checked = false;
-                cb_German.Checked = false;
-                cb_English.Checked = false;
-                cb_Italian.Checked = false;
-                cb_Spanish.Checked = false;
-                cb_Swedish.Checked = false;
-                cb_Norwegian.Checked = false;
-                cb_Portuguese.Checked = false;
+                UpdateAllLanguagesSelection(false);
                 return;
             }
 
             InputValidations.AreAllLanguagesSelected = cb_SelectAll.Checked;
             if (!InputValidations.AreAllLanguagesSelected)
             {
-                cb_Dutch.Checked = SupportedLangues.DutchSelected;
-                cb_Greek.Checked = SupportedLangues.GreekSelected;
-                cb_French.Checked = SupportedLangues.FrenchSelected;
-                cb_German.Checked = SupportedLangues.GermanSelected;
-                cb_English.Checked = SupportedLangues.EnglishSelected;
-                cb_Italian.Checked = SupportedLangues.ItalianSelected;
-                cb_Spanish.Checked = SupportedLangues.SpanishSelected;
-                cb_Swedish.Checked = SupportedLangues.SwedishSelected;
-                cb_Norwegian.Checked = SupportedLangues.NorwegianSelected;
-                cb_Portuguese.Checked = SupportedLangues.PortugueseSelected;
+                UpdateAllLanguagesSelection(null);
             }
             else
             {
-                cb_Dutch.Checked = true;
-                cb_Greek.Checked = true;
-                cb_French.Checked = true;
-                cb_German.Checked = true;
-                cb_English.Checked = true;
-                cb_Italian.Checked = true;
-                cb_Spanish.Checked = true;
-                cb_Swedish.Checked = true;
-                cb_Norwegian.Checked = true;
-                cb_Portuguese.Checked = true;
+                UpdateAllLanguagesSelection(true);
             }
         }
 
         private void cb_Dutch_CheckedChanged(object sender, EventArgs e)
         {
-            //InputValidations.IsALanguageSelected = IsAtleastOneLanguageSelected();
             SupportedLangues.DutchSelected = cb_Dutch.Checked;
             UpdateLanguageSelection();
         }
 
         private void cb_English_CheckedChanged(object sender, EventArgs e)
         {
-            //InputValidations.IsALanguageSelected = IsAtleastOneLanguageSelected();
             SupportedLangues.EnglishSelected = cb_English.Checked;
             UpdateLanguageSelection();
         }
