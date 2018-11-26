@@ -16,7 +16,7 @@ namespace ResxFileFromExcel
         public resxGenerator()
         {
             InitializeComponent();
-            btn_Generate_resx.Enabled = false;
+            btn_Generate_resx.Enabled = false;            
         }
 
         private void EnableGenerateButton()
@@ -37,7 +37,7 @@ namespace ResxFileFromExcel
             }
             else
             {
-                MessageBox.Show(Constants.INVALID_INPUT_FILE_PATH_ERROR);
+                MessageBox.Show(Constants.INVALID_INPUT_FILE_PATH_ERROR, "Invalid Input File", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 tb_input_excel_path.Text = string.Empty;
             }
         }
@@ -50,7 +50,7 @@ namespace ResxFileFromExcel
             }
             else
             {
-                MessageBox.Show(Constants.INVALID_OUTPUT_DIRECTORY_PATH_ERROR);
+                MessageBox.Show(Constants.INVALID_OUTPUT_DIRECTORY_PATH_ERROR, "Invalid output folder", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 tb_output_resx_path.Text = string.Empty;
             }
         }
@@ -82,13 +82,15 @@ namespace ResxFileFromExcel
 
         private void Generate_resx_Click(object sender, EventArgs e)
         {
-            if (InputValidations.IsExcelSheetInRightFormat(tb_input_excel_path.Text) && InputValidations.IsALanguageSelected)
+            if (InputValidations.ArePathsInputsValid() && 
+                InputValidations.IsExcelSheetInRightFormat(tb_input_excel_path.Text) && 
+                InputValidations.IsALanguageSelected)
             {
-                ResxGenerator.Generate(tb_input_excel_path.Text);
+                ResxGenerator.Generate(tb_input_excel_path.Text, tb_output_resx_path.Text);
             }
             else
             {
-                MessageBox.Show(Constants.INVALID_INPUT_FILE_ERROR);
+                MessageBox.Show(Constants.INVALID_INPUT_FILE_ERROR, "Invalid Input File", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
