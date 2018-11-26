@@ -36,7 +36,7 @@ namespace ResxFileFromExcel
             this.InputExcelFilePath = new System.Windows.Forms.Label();
             this.OutputResxFilePath = new System.Windows.Forms.Label();
             this.tb_output_resx_path = new System.Windows.Forms.TextBox();
-            this.generationLog = new System.Windows.Forms.TextBox();
+            this.tb_generationLog = new System.Windows.Forms.TextBox();
             this.btn_BrowseInputFile = new System.Windows.Forms.Button();
             this.btn_BrowseForOutput = new System.Windows.Forms.Button();
             this.cb_Greek = new System.Windows.Forms.CheckBox();
@@ -108,17 +108,18 @@ namespace ResxFileFromExcel
             this.tb_output_resx_path.TabIndex = 4;
             this.tb_output_resx_path.TextChanged += new System.EventHandler(this.output_resx_path_TextChanged);
             // 
-            // generationLog
+            // tb_generationLog
             // 
-            this.generationLog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tb_generationLog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.generationLog.Enabled = false;
-            this.generationLog.Location = new System.Drawing.Point(17, 307);
-            this.generationLog.Multiline = true;
-            this.generationLog.Name = "generationLog";
-            this.generationLog.Size = new System.Drawing.Size(454, 219);
-            this.generationLog.TabIndex = 5;
+            this.tb_generationLog.Location = new System.Drawing.Point(17, 307);
+            this.tb_generationLog.Multiline = true;
+            this.tb_generationLog.Name = "tb_generationLog";
+            this.tb_generationLog.ReadOnly = true;
+            this.tb_generationLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.tb_generationLog.Size = new System.Drawing.Size(454, 219);
+            this.tb_generationLog.TabIndex = 5;
             // 
             // btn_BrowseInputFile
             // 
@@ -325,7 +326,7 @@ namespace ResxFileFromExcel
             this.Controls.Add(this.gb_SelectLanguages);
             this.Controls.Add(this.btn_BrowseForOutput);
             this.Controls.Add(this.btn_BrowseInputFile);
-            this.Controls.Add(this.generationLog);
+            this.Controls.Add(this.tb_generationLog);
             this.Controls.Add(this.tb_output_resx_path);
             this.Controls.Add(this.OutputResxFilePath);
             this.Controls.Add(this.InputExcelFilePath);
@@ -353,7 +354,7 @@ namespace ResxFileFromExcel
         private System.Windows.Forms.Label InputExcelFilePath;
         private System.Windows.Forms.Label OutputResxFilePath;
         private System.Windows.Forms.TextBox tb_output_resx_path;
-        private System.Windows.Forms.TextBox generationLog;
+        private System.Windows.Forms.TextBox tb_generationLog;
         private System.Windows.Forms.Button btn_BrowseInputFile;
         private System.Windows.Forms.Button btn_BrowseForOutput;
         private System.Windows.Forms.CheckBox cb_Greek;

@@ -10,6 +10,7 @@ namespace ResxFileFromExcel
     {
         public bool IsSelected;
         public string FileName;
+        public string Language;
     }
 
 

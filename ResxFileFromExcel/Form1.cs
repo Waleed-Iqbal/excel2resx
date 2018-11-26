@@ -33,7 +33,9 @@ namespace ResxFileFromExcel
 
         private void Log(string log)
         {
-            generationLog.Text += $"{Environment.NewLine} {log}";
+            tb_generationLog.Text += $"{Environment.NewLine} {log}";
+            tb_generationLog.SelectionStart = tb_generationLog.Text.Length;
+            tb_generationLog.ScrollToCaret();
         }
 
         private void EnableAllUIControls(bool enable)
@@ -321,7 +323,7 @@ namespace ResxFileFromExcel
 
         private void ClearLog()
         {
-            generationLog.Clear();
+            tb_generationLog.Clear();
         }
 
 

@@ -13,6 +13,15 @@ namespace ResxFileFromExcel
 
         public const string INVALID_OUTPUT_DIRECTORY_PATH_ERROR = "Not a valid output folder";
 
+
+        public const string RESOURCE_FILE_EXTENSION = ".resx";
+        public const string STARTED = "Started";
+        public const string GENERATING = "Generating";
+        public const string FINISHED = "Finished";
+        public const string ERROR = "Error";
+        public const string TRANSLATION_NOT_AVAILABLE_IN_EXCEL_SHEET = "translations not available in given excel sheet";
+
+
         public static string GREEK = "Greek";
         public static string DUTCH = "Dutch";
         public static string GERMAN = "German";
