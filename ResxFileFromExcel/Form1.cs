@@ -31,6 +31,11 @@ namespace ResxFileFromExcel
 
         }
 
+        private void Log(string log)
+        {
+            generationLog.Text += $"{Environment.NewLine} {log}";
+        }
+
         private void EnableAllUIControls(bool enable)
         {
             tb_input_excel_path.Enabled = enable;
@@ -49,7 +54,6 @@ namespace ResxFileFromExcel
             cb_Swedish.Enabled = enable;
             cb_Greek.Enabled = enable;
             btn_Generate_resx.Enabled = enable;
-
         }
 
         private void input_excel_path_TextChanged(object sender, EventArgs e)
