@@ -7,7 +7,9 @@ Each column from 2 onwards represents a different language like following
 
 
 Keys   English    Spanish  ...
+
 key1   english1   spanish1 ...
+
 
 The first row should be in the order of "Keys language-name-1 language-name-2 ..."
 
