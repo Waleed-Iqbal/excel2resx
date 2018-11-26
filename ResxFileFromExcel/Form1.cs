@@ -17,8 +17,8 @@ namespace ResxFileFromExcel
         {
             InitializeComponent();
             btn_Generate_resx.Enabled = false;
-            tb_input_excel_path.Text = @"D:\ResxFileFromExcel\ResxFileFromExcel\SampleInput.xlsx";
-            tb_output_resx_path.Text = @"C:\Users\Allaudin\Desktop\Rough";
+            //tb_input_excel_path.Text = @"D:\ResxFileFromExcel\ResxFileFromExcel\SampleInput.xlsx";
+            //tb_output_resx_path.Text = @"C:\Users\Allaudin\Desktop\Rough";
         }
 
         private void EnableGenerateButton()
