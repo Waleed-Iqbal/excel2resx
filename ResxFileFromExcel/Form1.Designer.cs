@@ -53,6 +53,7 @@ namespace ResxFileFromExcel
             this.panel_SelectLanguages = new System.Windows.Forms.Panel();
             this.cb_SelectAll = new System.Windows.Forms.CheckBox();
             this.lbl_GenerationLog = new System.Windows.Forms.Label();
+            this.Close = new System.Windows.Forms.Button();
             this.gb_SelectLanguages.SuspendLayout();
             this.panel_SelectLanguages.SuspendLayout();
             this.SuspendLayout();
@@ -60,7 +61,7 @@ namespace ResxFileFromExcel
             // btn_Generate_resx
             // 
             this.btn_Generate_resx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Generate_resx.Location = new System.Drawing.Point(408, 273);
+            this.btn_Generate_resx.Location = new System.Drawing.Point(371, 273);
             this.btn_Generate_resx.Name = "btn_Generate_resx";
             this.btn_Generate_resx.Size = new System.Drawing.Size(98, 27);
             this.btn_Generate_resx.TabIndex = 0;
@@ -73,16 +74,16 @@ namespace ResxFileFromExcel
             // 
             this.tb_input_excel_path.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_input_excel_path.Location = new System.Drawing.Point(18, 41);
+            this.tb_input_excel_path.Location = new System.Drawing.Point(14, 41);
             this.tb_input_excel_path.Name = "tb_input_excel_path";
-            this.tb_input_excel_path.Size = new System.Drawing.Size(407, 20);
+            this.tb_input_excel_path.Size = new System.Drawing.Size(374, 20);
             this.tb_input_excel_path.TabIndex = 1;
             this.tb_input_excel_path.TextChanged += new System.EventHandler(this.input_excel_path_TextChanged);
             // 
             // InputExcelFilePath
             // 
             this.InputExcelFilePath.AutoSize = true;
-            this.InputExcelFilePath.Location = new System.Drawing.Point(16, 20);
+            this.InputExcelFilePath.Location = new System.Drawing.Point(12, 20);
             this.InputExcelFilePath.Name = "InputExcelFilePath";
             this.InputExcelFilePath.Size = new System.Drawing.Size(107, 13);
             this.InputExcelFilePath.TabIndex = 2;
@@ -91,7 +92,7 @@ namespace ResxFileFromExcel
             // OutputResxFilePath
             // 
             this.OutputResxFilePath.AutoSize = true;
-            this.OutputResxFilePath.Location = new System.Drawing.Point(18, 79);
+            this.OutputResxFilePath.Location = new System.Drawing.Point(14, 79);
             this.OutputResxFilePath.Name = "OutputResxFilePath";
             this.OutputResxFilePath.Size = new System.Drawing.Size(120, 13);
             this.OutputResxFilePath.TabIndex = 3;
@@ -101,9 +102,9 @@ namespace ResxFileFromExcel
             // 
             this.tb_output_resx_path.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_output_resx_path.Location = new System.Drawing.Point(20, 103);
+            this.tb_output_resx_path.Location = new System.Drawing.Point(16, 103);
             this.tb_output_resx_path.Name = "tb_output_resx_path";
-            this.tb_output_resx_path.Size = new System.Drawing.Size(405, 20);
+            this.tb_output_resx_path.Size = new System.Drawing.Size(372, 20);
             this.tb_output_resx_path.TabIndex = 4;
             this.tb_output_resx_path.TextChanged += new System.EventHandler(this.output_resx_path_TextChanged);
             // 
@@ -112,16 +113,17 @@ namespace ResxFileFromExcel
             this.generationLog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.generationLog.Location = new System.Drawing.Point(21, 307);
+            this.generationLog.Enabled = false;
+            this.generationLog.Location = new System.Drawing.Point(17, 307);
             this.generationLog.Multiline = true;
             this.generationLog.Name = "generationLog";
-            this.generationLog.Size = new System.Drawing.Size(487, 294);
+            this.generationLog.Size = new System.Drawing.Size(454, 219);
             this.generationLog.TabIndex = 5;
             // 
             // btn_BrowseInputFile
             // 
             this.btn_BrowseInputFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_BrowseInputFile.Location = new System.Drawing.Point(431, 40);
+            this.btn_BrowseInputFile.Location = new System.Drawing.Point(394, 40);
             this.btn_BrowseInputFile.Name = "btn_BrowseInputFile";
             this.btn_BrowseInputFile.Size = new System.Drawing.Size(75, 23);
             this.btn_BrowseInputFile.TabIndex = 6;
@@ -132,7 +134,7 @@ namespace ResxFileFromExcel
             // btn_BrowseForOutput
             // 
             this.btn_BrowseForOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_BrowseForOutput.Location = new System.Drawing.Point(432, 102);
+            this.btn_BrowseForOutput.Location = new System.Drawing.Point(395, 102);
             this.btn_BrowseForOutput.Name = "btn_BrowseForOutput";
             this.btn_BrowseForOutput.Size = new System.Drawing.Size(75, 23);
             this.btn_BrowseForOutput.TabIndex = 7;
@@ -143,7 +145,7 @@ namespace ResxFileFromExcel
             // cb_Greek
             // 
             this.cb_Greek.AutoSize = true;
-            this.cb_Greek.Location = new System.Drawing.Point(340, 84);
+            this.cb_Greek.Location = new System.Drawing.Point(346, 84);
             this.cb_Greek.Name = "cb_Greek";
             this.cb_Greek.Size = new System.Drawing.Size(55, 17);
             this.cb_Greek.TabIndex = 8;
@@ -154,7 +156,7 @@ namespace ResxFileFromExcel
             // cb_Dutch
             // 
             this.cb_Dutch.AutoSize = true;
-            this.cb_Dutch.Location = new System.Drawing.Point(2, 48);
+            this.cb_Dutch.Location = new System.Drawing.Point(8, 48);
             this.cb_Dutch.Name = "cb_Dutch";
             this.cb_Dutch.Size = new System.Drawing.Size(55, 17);
             this.cb_Dutch.TabIndex = 9;
@@ -165,7 +167,7 @@ namespace ResxFileFromExcel
             // cb_German
             // 
             this.cb_German.AutoSize = true;
-            this.cb_German.Location = new System.Drawing.Point(256, 48);
+            this.cb_German.Location = new System.Drawing.Point(262, 48);
             this.cb_German.Name = "cb_German";
             this.cb_German.Size = new System.Drawing.Size(63, 17);
             this.cb_German.TabIndex = 10;
@@ -176,7 +178,7 @@ namespace ResxFileFromExcel
             // cb_French
             // 
             this.cb_French.AutoSize = true;
-            this.cb_French.Location = new System.Drawing.Point(174, 48);
+            this.cb_French.Location = new System.Drawing.Point(180, 48);
             this.cb_French.Name = "cb_French";
             this.cb_French.Size = new System.Drawing.Size(59, 17);
             this.cb_French.TabIndex = 11;
@@ -187,7 +189,7 @@ namespace ResxFileFromExcel
             // cb_English
             // 
             this.cb_English.AutoSize = true;
-            this.cb_English.Location = new System.Drawing.Point(89, 48);
+            this.cb_English.Location = new System.Drawing.Point(95, 48);
             this.cb_English.Name = "cb_English";
             this.cb_English.Size = new System.Drawing.Size(60, 17);
             this.cb_English.TabIndex = 12;
@@ -198,7 +200,7 @@ namespace ResxFileFromExcel
             // cb_Spanish
             // 
             this.cb_Spanish.AutoSize = true;
-            this.cb_Spanish.Location = new System.Drawing.Point(174, 84);
+            this.cb_Spanish.Location = new System.Drawing.Point(180, 84);
             this.cb_Spanish.Name = "cb_Spanish";
             this.cb_Spanish.Size = new System.Drawing.Size(64, 17);
             this.cb_Spanish.TabIndex = 13;
@@ -209,7 +211,7 @@ namespace ResxFileFromExcel
             // cb_Swedish
             // 
             this.cb_Swedish.AutoSize = true;
-            this.cb_Swedish.Location = new System.Drawing.Point(256, 84);
+            this.cb_Swedish.Location = new System.Drawing.Point(262, 84);
             this.cb_Swedish.Name = "cb_Swedish";
             this.cb_Swedish.Size = new System.Drawing.Size(66, 17);
             this.cb_Swedish.TabIndex = 14;
@@ -220,7 +222,7 @@ namespace ResxFileFromExcel
             // cb_Italian
             // 
             this.cb_Italian.AutoSize = true;
-            this.cb_Italian.Location = new System.Drawing.Point(340, 48);
+            this.cb_Italian.Location = new System.Drawing.Point(346, 48);
             this.cb_Italian.Name = "cb_Italian";
             this.cb_Italian.Size = new System.Drawing.Size(54, 17);
             this.cb_Italian.TabIndex = 15;
@@ -231,7 +233,7 @@ namespace ResxFileFromExcel
             // cb_Norwegian
             // 
             this.cb_Norwegian.AutoSize = true;
-            this.cb_Norwegian.Location = new System.Drawing.Point(2, 84);
+            this.cb_Norwegian.Location = new System.Drawing.Point(8, 84);
             this.cb_Norwegian.Name = "cb_Norwegian";
             this.cb_Norwegian.Size = new System.Drawing.Size(77, 17);
             this.cb_Norwegian.TabIndex = 16;
@@ -242,7 +244,7 @@ namespace ResxFileFromExcel
             // cb_Portuguese
             // 
             this.cb_Portuguese.AutoSize = true;
-            this.cb_Portuguese.Location = new System.Drawing.Point(89, 84);
+            this.cb_Portuguese.Location = new System.Drawing.Point(95, 84);
             this.cb_Portuguese.Name = "cb_Portuguese";
             this.cb_Portuguese.Size = new System.Drawing.Size(80, 17);
             this.cb_Portuguese.TabIndex = 17;
@@ -255,9 +257,9 @@ namespace ResxFileFromExcel
             this.gb_SelectLanguages.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gb_SelectLanguages.Controls.Add(this.panel_SelectLanguages);
-            this.gb_SelectLanguages.Location = new System.Drawing.Point(21, 139);
+            this.gb_SelectLanguages.Location = new System.Drawing.Point(17, 139);
             this.gb_SelectLanguages.Name = "gb_SelectLanguages";
-            this.gb_SelectLanguages.Size = new System.Drawing.Size(485, 126);
+            this.gb_SelectLanguages.Size = new System.Drawing.Size(452, 126);
             this.gb_SelectLanguages.TabIndex = 19;
             this.gb_SelectLanguages.TabStop = false;
             this.gb_SelectLanguages.Text = "Select Languages";
@@ -278,13 +280,13 @@ namespace ResxFileFromExcel
             this.panel_SelectLanguages.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_SelectLanguages.Location = new System.Drawing.Point(3, 16);
             this.panel_SelectLanguages.Name = "panel_SelectLanguages";
-            this.panel_SelectLanguages.Size = new System.Drawing.Size(479, 107);
+            this.panel_SelectLanguages.Size = new System.Drawing.Size(446, 107);
             this.panel_SelectLanguages.TabIndex = 19;
             // 
             // cb_SelectAll
             // 
             this.cb_SelectAll.AutoSize = true;
-            this.cb_SelectAll.Location = new System.Drawing.Point(2, 14);
+            this.cb_SelectAll.Location = new System.Drawing.Point(8, 14);
             this.cb_SelectAll.Name = "cb_SelectAll";
             this.cb_SelectAll.Size = new System.Drawing.Size(70, 17);
             this.cb_SelectAll.TabIndex = 18;
@@ -301,11 +303,24 @@ namespace ResxFileFromExcel
             this.lbl_GenerationLog.TabIndex = 20;
             this.lbl_GenerationLog.Text = "Log:";
             // 
+            // Close
+            // 
+            this.Close.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Close.Location = new System.Drawing.Point(383, 535);
+            this.Close.Name = "Close";
+            this.Close.Size = new System.Drawing.Size(87, 23);
+            this.Close.TabIndex = 21;
+            this.Close.Text = "Close";
+            this.Close.UseVisualStyleBackColor = true;
+            this.Close.Click += new System.EventHandler(this.Close_Click);
+            // 
             // resxGenerator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(523, 630);
+            this.ClientSize = new System.Drawing.Size(490, 568);
+            this.Controls.Add(this.Close);
             this.Controls.Add(this.lbl_GenerationLog);
             this.Controls.Add(this.gb_SelectLanguages);
             this.Controls.Add(this.btn_BrowseForOutput);
@@ -355,6 +370,7 @@ namespace ResxFileFromExcel
         private System.Windows.Forms.Label lbl_GenerationLog;
         private System.Windows.Forms.CheckBox cb_SelectAll;
         private System.Windows.Forms.Panel panel_SelectLanguages;
+        private System.Windows.Forms.Button Close;
     }
 }
 

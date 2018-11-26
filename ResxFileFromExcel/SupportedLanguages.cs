@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ResxFileFromExcel
 {
-    public struct FileInfo
+    public struct LanguageSelectionInfo
     {
         public bool IsSelected;
         public string FileName;
@@ -43,17 +43,17 @@ namespace ResxFileFromExcel
         public static bool PortugueseSelected = false;
 
 
-        public static Dictionary<string, FileInfo> localizationFilesInfo = new Dictionary<string, FileInfo>() {
-            { Constants.GREEK, new FileInfo(){ FileName = OutputFileNames.Greek, IsSelected=GreekSelected } },
-            { Constants.DUTCH,  new FileInfo(){ FileName = OutputFileNames.Dutch, IsSelected=DutchSelected } },
-            { Constants.GERMAN, new FileInfo(){ FileName = OutputFileNames.German, IsSelected=GermanSelected } },
-            { Constants.FRENCH, new FileInfo(){ FileName = OutputFileNames.French, IsSelected=FrenchSelected} },
-            { Constants.SPANISH, new FileInfo(){ FileName = OutputFileNames.Spanish, IsSelected=SpanishSelected } },
-            { Constants.SWEDISH, new FileInfo(){ FileName = OutputFileNames.Swedish, IsSelected=SwedishSelected } },
-            { Constants.ITALIAN, new FileInfo(){ FileName = OutputFileNames.Italian, IsSelected=ItalianSelected } },
-            { Constants.ENGLISH, new FileInfo(){ FileName = OutputFileNames.English, IsSelected=EnglishSelected } },
-            { Constants.NORWEGIAN, new FileInfo(){ FileName = OutputFileNames.Norwegian, IsSelected=NorwegianSelected } },
-            { Constants.PORTUGUESE, new FileInfo(){ FileName = OutputFileNames.Portuguese, IsSelected=PortugueseSelected} }
+        public static Dictionary<string, LanguageSelectionInfo> LocalizationFilesInfo = new Dictionary<string, LanguageSelectionInfo>() {
+            { Constants.GREEK, new LanguageSelectionInfo(){ FileName = OutputFileNames.Greek, IsSelected=GreekSelected } },
+            { Constants.DUTCH,  new LanguageSelectionInfo(){ FileName = OutputFileNames.Dutch, IsSelected=DutchSelected } },
+            { Constants.GERMAN, new LanguageSelectionInfo(){ FileName = OutputFileNames.German, IsSelected=GermanSelected } },
+            { Constants.FRENCH, new LanguageSelectionInfo(){ FileName = OutputFileNames.French, IsSelected=FrenchSelected} },
+            { Constants.SPANISH, new LanguageSelectionInfo(){ FileName = OutputFileNames.Spanish, IsSelected=SpanishSelected } },
+            { Constants.SWEDISH, new LanguageSelectionInfo(){ FileName = OutputFileNames.Swedish, IsSelected=SwedishSelected } },
+            { Constants.ITALIAN, new LanguageSelectionInfo(){ FileName = OutputFileNames.Italian, IsSelected=ItalianSelected } },
+            { Constants.ENGLISH, new LanguageSelectionInfo(){ FileName = OutputFileNames.English, IsSelected=EnglishSelected } },
+            { Constants.NORWEGIAN, new LanguageSelectionInfo(){ FileName = OutputFileNames.Norwegian, IsSelected=NorwegianSelected } },
+            { Constants.PORTUGUESE, new LanguageSelectionInfo(){ FileName = OutputFileNames.Portuguese, IsSelected=PortugueseSelected} }
         };
     }
 }

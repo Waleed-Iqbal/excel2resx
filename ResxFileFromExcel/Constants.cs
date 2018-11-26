@@ -13,16 +13,16 @@ namespace ResxFileFromExcel
 
         public const string INVALID_OUTPUT_DIRECTORY_PATH_ERROR = "Not a valid output folder";
 
-        public const string GREEK = "Greek";
-        public const string DUTCH = "Dutch";
-        public const string GERMAN = "German";
-        public const string FRENCH = "French";
-        public const string ENGLISH = "English";
-        public const string SPANISH = "Spanish";
-        public const string SWEDISH = "Swedish";
-        public const string ITALIAN = "Italian";
-        public const string NORWEGIAN = "Norwegian";
-        public const string PORTUGUESE = "Portuguese";
+        public static string GREEK = "Greek";
+        public static string DUTCH = "Dutch";
+        public static string GERMAN = "German";
+        public static string FRENCH = "French";
+        public static string ENGLISH = "English";
+        public static string SPANISH = "Spanish";
+        public static string SWEDISH = "Swedish";
+        public static string ITALIAN = "Italian";
+        public static string NORWEGIAN = "Norwegian";
+        public static string PORTUGUESE = "Portuguese";
 
         public const string GREEK_SHORT_LOWER = "el";
         public const string DUTCH_SHORT_LOWER = "nl";

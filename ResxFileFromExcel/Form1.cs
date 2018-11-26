@@ -16,7 +16,9 @@ namespace ResxFileFromExcel
         public resxGenerator()
         {
             InitializeComponent();
-            btn_Generate_resx.Enabled = false;            
+            btn_Generate_resx.Enabled = false;
+            tb_input_excel_path.Text = @"D:\ResxFileFromExcel\ResxFileFromExcel\SampleInput.xlsx";
+            tb_output_resx_path.Text = @"C:\Users\Allaudin\Desktop\Rough";
         }
 
         private void EnableGenerateButton()
@@ -26,6 +28,27 @@ namespace ResxFileFromExcel
 
         private void resxGenerator_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void EnableAllUIControls(bool enable)
+        {
+            tb_input_excel_path.Enabled = enable;
+            btn_BrowseInputFile.Enabled = enable;
+            tb_output_resx_path.Enabled = enable;
+            btn_BrowseForOutput.Enabled = enable;
+            cb_SelectAll.Enabled = enable;
+            cb_Dutch.Enabled = enable;
+            cb_English.Enabled = enable;
+            cb_French.Enabled = enable;
+            cb_German.Enabled = enable;
+            cb_Italian.Enabled = enable;
+            cb_Norwegian.Enabled = enable;
+            cb_Portuguese.Enabled = enable;
+            cb_Spanish.Enabled = enable;
+            cb_Swedish.Enabled = enable;
+            cb_Greek.Enabled = enable;
+            btn_Generate_resx.Enabled = enable;
 
         }
 
@@ -86,7 +109,7 @@ namespace ResxFileFromExcel
                 InputValidations.IsExcelSheetInRightFormat(tb_input_excel_path.Text) && 
                 InputValidations.IsALanguageSelected)
             {
-                ResxGenerator.Generate(tb_input_excel_path.Text, tb_output_resx_path.Text);
+                GenerateResx(tb_input_excel_path.Text, tb_output_resx_path.Text);
             }
             else
             {
@@ -95,7 +118,7 @@ namespace ResxFileFromExcel
         }
 
         #region Language Check Boxes Handlers
-        private void UpdateAllLanguagesSelection(bool? state)
+        private void UpdateAllLanguagesSelectionInUI(bool? state)
         {
             if (state == null)
             {
@@ -124,6 +147,51 @@ namespace ResxFileFromExcel
                 cb_Norwegian.Checked = (bool)state;
                 cb_Portuguese.Checked = (bool)state;
             }
+        }
+
+        private void UpdateSupportedLanguagesSelection()
+        {
+            SupportedLangues.GreekSelected = cb_Greek.Checked;
+            // Doing it this way because updating a dictionary directly in this case throws an error that its suppose to be a vairable
+            // so a new FileInfo object is assigned
+            SupportedLangues.LocalizationFilesInfo[Constants.GREEK] = 
+                new LanguageSelectionInfo() {FileName = SupportedLangues.LocalizationFilesInfo[Constants.GREEK].FileName, IsSelected = cb_Greek.Checked };
+
+            SupportedLangues.DutchSelected = cb_Dutch.Checked;
+            SupportedLangues.LocalizationFilesInfo[Constants.DUTCH] =
+                new LanguageSelectionInfo() { FileName = SupportedLangues.LocalizationFilesInfo[Constants.DUTCH].FileName, IsSelected = cb_Dutch.Checked };
+
+            SupportedLangues.GermanSelected = cb_German.Checked;
+            SupportedLangues.LocalizationFilesInfo[Constants.GERMAN] = 
+                new LanguageSelectionInfo() {FileName = SupportedLangues.LocalizationFilesInfo[Constants.GERMAN].FileName, IsSelected = cb_German.Checked };
+
+            SupportedLangues.FrenchSelected = cb_French.Checked;
+            SupportedLangues.LocalizationFilesInfo[Constants.FRENCH] =
+                new LanguageSelectionInfo() { FileName = SupportedLangues.LocalizationFilesInfo[Constants.FRENCH].FileName, IsSelected = cb_French.Checked };
+
+            SupportedLangues.EnglishSelected = cb_English.Checked;
+            SupportedLangues.LocalizationFilesInfo[Constants.ENGLISH] =
+                new LanguageSelectionInfo() { FileName = SupportedLangues.LocalizationFilesInfo[Constants.ENGLISH].FileName, IsSelected = cb_English.Checked };
+
+            SupportedLangues.SpanishSelected = cb_Spanish.Checked;
+            SupportedLangues.LocalizationFilesInfo[Constants.SPANISH] =
+                new LanguageSelectionInfo() { FileName = SupportedLangues.LocalizationFilesInfo[Constants.SPANISH].FileName, IsSelected = cb_Spanish.Checked };
+
+            SupportedLangues.SwedishSelected = cb_Swedish.Checked;
+            SupportedLangues.LocalizationFilesInfo[Constants.SWEDISH] =
+                new LanguageSelectionInfo() { FileName = SupportedLangues.LocalizationFilesInfo[Constants.SWEDISH].FileName, IsSelected = cb_Swedish.Checked };
+
+            SupportedLangues.ItalianSelected = cb_Italian.Checked;
+            SupportedLangues.LocalizationFilesInfo[Constants.ITALIAN] =
+                new LanguageSelectionInfo() { FileName = SupportedLangues.LocalizationFilesInfo[Constants.ITALIAN].FileName, IsSelected = cb_Italian.Checked };
+
+            SupportedLangues.NorwegianSelected = cb_Norwegian.Checked;
+            SupportedLangues.LocalizationFilesInfo[Constants.NORWEGIAN] =
+                new LanguageSelectionInfo() { FileName = SupportedLangues.LocalizationFilesInfo[Constants.NORWEGIAN].FileName, IsSelected = cb_Norwegian.Checked };
+
+            SupportedLangues.PortugueseSelected = cb_Portuguese.Checked;
+            SupportedLangues.LocalizationFilesInfo[Constants.PORTUGUESE] =
+                new LanguageSelectionInfo() { FileName = SupportedLangues.LocalizationFilesInfo[Constants.PORTUGUESE].FileName, IsSelected = cb_Portuguese.Checked };
         }
 
         private bool IsAtleastOneLanguageSelected()
@@ -171,18 +239,18 @@ namespace ResxFileFromExcel
             if (selectAllChangeAfterLanguageUpdate && InputValidations.AreAllLanguagesSelected && !cb_SelectAll.Checked)
             {
                 selectAllChangeAfterLanguageUpdate = false;
-                UpdateAllLanguagesSelection(false);
+                UpdateAllLanguagesSelectionInUI(false);
                 return;
             }
 
             InputValidations.AreAllLanguagesSelected = cb_SelectAll.Checked;
             if (!InputValidations.AreAllLanguagesSelected)
             {
-                UpdateAllLanguagesSelection(null);
+                UpdateAllLanguagesSelectionInUI(null);
             }
             else
             {
-                UpdateAllLanguagesSelection(true);
+                UpdateAllLanguagesSelectionInUI(true);
             }
         }
 
@@ -247,5 +315,15 @@ namespace ResxFileFromExcel
         }
         #endregion Language Check Boxes Handler
 
+        private void ClearLog()
+        {
+            generationLog.Clear();
+        }
+
+
+        private void Close_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
