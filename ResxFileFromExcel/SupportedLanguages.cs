@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace ResxFileFromExcel
 {
+    public struct FileInfo
+    {
+        public bool IsSelected;
+        public string FileName;
+    }
     public static class SupportedLangues
     {
         public const string Greek = "el";
@@ -30,5 +35,20 @@ namespace ResxFileFromExcel
         public static bool ItalianSelected = false;
         public static bool NorwegianSelected = false;
         public static bool PortugueseSelected = false;
+
+
+        public static Dictionary<string, FileInfo> localizationFileNames = new Dictionary<string, FileInfo>() {
+            { SupportedLangues.Greek, new FileInfo(){ FileName = $"{SupportedLangues.Greek}-GR", IsSelected=GreekSelected } },
+            { SupportedLangues.Dutch,  new FileInfo(){ FileName = $"{SupportedLangues.Dutch}-BE", IsSelected=DutchSelected } },
+            { SupportedLangues.German, new FileInfo(){ FileName = $"{SupportedLangues.German}-DE", IsSelected=GermanSelected } },
+            { SupportedLangues.French, new FileInfo(){ FileName = $"{SupportedLangues.French}-FR", IsSelected=FrenchSelected } },
+            { SupportedLangues.Spanish, new FileInfo(){ FileName = $"{SupportedLangues.Spanish}-ES", IsSelected=SpanishSelected  } },
+            { SupportedLangues.Swedish, new FileInfo(){ FileName = $"{SupportedLangues.Swedish}-SV", IsSelected=SwedishSelected} },
+            { SupportedLangues.Italian, new FileInfo(){ FileName = $"{SupportedLangues.Italian}-IT", IsSelected=ItalianSelected } },
+            { SupportedLangues.English, new FileInfo(){ FileName = $"{SupportedLangues.English}-GB", IsSelected=EnglishSelected } },
+            { SupportedLangues.Norwegian, new FileInfo(){ FileName = $"{SupportedLangues.Norwegian}-NB", IsSelected=NorwegianSelected } },
+            { SupportedLangues.Portuguese, new FileInfo(){ FileName = $"{SupportedLangues.Portuguese}-PT", IsSelected=PortugueseSelected } }
+        };
+
     }
 }
