@@ -18,7 +18,6 @@ namespace ResxFileFromExcel
         {
             ClearLog();
 
-
             try
             {
                 await Task.Run(() =>
@@ -107,13 +106,6 @@ namespace ResxFileFromExcel
                         }
                     }
 
-                    // Logging the languages that were selected but not available in excel sheet
-                    //List<string> skippedLanguages = allLanguages.Except(languageFilesGenerated).ToList();
-                    //Log(Environment.NewLine);
-                    //foreach (var language in skippedLanguages)
-                    //    Invoke(logger, new object[] { $"{language} translations not available" });
-
-
                     Invoke(logger, new object[] { $"{Environment.NewLine}{Constants.FINISHED}" });
                     Invoke(UIControlsEnabler, new object[] { true });
                 });
@@ -123,9 +115,6 @@ namespace ResxFileFromExcel
                 tb_generationLog.Text += Environment.NewLine + e.Message;
                 EnableAllUIControls(true);
             }
-
-
-
         }
     }
 }
