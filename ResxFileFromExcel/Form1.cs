@@ -5,9 +5,11 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace ResxFileFromExcel
 {
@@ -17,8 +19,8 @@ namespace ResxFileFromExcel
         {
             InitializeComponent();
             btn_Generate_resx.Enabled = false;
-            //tb_input_excel_path.Text = @"D:\ResxFileFromExcel\ResxFileFromExcel\SampleInput.xlsx";
-            //tb_output_resx_path.Text = @"C:\Users\Allaudin\Desktop\Rough";
+            tb_input_excel_path.Text = @"D:\ResxFileFromExcel\ResxFileFromExcel\SampleInput.xlsx";
+            tb_output_resx_path.Text = @"C:\Users\Allaudin\Desktop\Rough";
         }
 
         private void EnableGenerateButton()
@@ -112,11 +114,12 @@ namespace ResxFileFromExcel
 
         private void Generate_resx_Click(object sender, EventArgs e)
         {
-            if (InputValidations.ArePathsInputsValid() && 
-                InputValidations.IsExcelSheetInRightFormat(tb_input_excel_path.Text) && 
+            if (InputValidations.ArePathsInputsValid() &&
+                InputValidations.IsExcelSheetInRightFormat(tb_input_excel_path.Text) &&
                 InputValidations.IsALanguageSelected)
             {
-                GenerateResx(tb_input_excel_path.Text, tb_output_resx_path.Text);
+                //GenerateResx(tb_input_excel_path.Text, tb_output_resx_path.Text);
+                backgroundWorker.RunWorkerAsync();
             }
             else
             {
@@ -161,16 +164,16 @@ namespace ResxFileFromExcel
             SupportedLangues.GreekSelected = cb_Greek.Checked;
             // Doing it this way because updating a dictionary directly in this case throws an error that its suppose to be a vairable
             // so a new FileInfo object is assigned
-            SupportedLangues.LocalizationFilesInfo[Constants.GREEK] = 
-                new LanguageSelectionInfo() {FileName = SupportedLangues.LocalizationFilesInfo[Constants.GREEK].FileName, IsSelected = cb_Greek.Checked };
+            SupportedLangues.LocalizationFilesInfo[Constants.GREEK] =
+                new LanguageSelectionInfo() { FileName = SupportedLangues.LocalizationFilesInfo[Constants.GREEK].FileName, IsSelected = cb_Greek.Checked };
 
             SupportedLangues.DutchSelected = cb_Dutch.Checked;
             SupportedLangues.LocalizationFilesInfo[Constants.DUTCH] =
                 new LanguageSelectionInfo() { FileName = SupportedLangues.LocalizationFilesInfo[Constants.DUTCH].FileName, IsSelected = cb_Dutch.Checked };
 
             SupportedLangues.GermanSelected = cb_German.Checked;
-            SupportedLangues.LocalizationFilesInfo[Constants.GERMAN] = 
-                new LanguageSelectionInfo() {FileName = SupportedLangues.LocalizationFilesInfo[Constants.GERMAN].FileName, IsSelected = cb_German.Checked };
+            SupportedLangues.LocalizationFilesInfo[Constants.GERMAN] =
+                new LanguageSelectionInfo() { FileName = SupportedLangues.LocalizationFilesInfo[Constants.GERMAN].FileName, IsSelected = cb_German.Checked };
 
             SupportedLangues.FrenchSelected = cb_French.Checked;
             SupportedLangues.LocalizationFilesInfo[Constants.FRENCH] =
@@ -332,5 +335,6 @@ namespace ResxFileFromExcel
         {
             Application.Exit();
         }
+
     }
 }

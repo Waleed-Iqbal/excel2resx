@@ -54,6 +54,7 @@ namespace ResxFileFromExcel
             this.cb_SelectAll = new System.Windows.Forms.CheckBox();
             this.lbl_GenerationLog = new System.Windows.Forms.Label();
             this.Close = new System.Windows.Forms.Button();
+            this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.gb_SelectLanguages.SuspendLayout();
             this.panel_SelectLanguages.SuspendLayout();
             this.SuspendLayout();
@@ -316,6 +317,12 @@ namespace ResxFileFromExcel
             this.Close.UseVisualStyleBackColor = true;
             this.Close.Click += new System.EventHandler(this.Close_Click);
             // 
+            // backgroundWorker
+            // 
+            this.backgroundWorker.WorkerReportsProgress = true;
+            this.backgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.backgroundWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
+            // 
             // resxGenerator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -372,6 +379,7 @@ namespace ResxFileFromExcel
         private System.Windows.Forms.CheckBox cb_SelectAll;
         private System.Windows.Forms.Panel panel_SelectLanguages;
         private System.Windows.Forms.Button Close;
+        private System.ComponentModel.BackgroundWorker backgroundWorker;
     }
 }
 
