@@ -39,7 +39,7 @@ namespace ResxFileFromExcel
 
         public static bool IsExcelSheetInRightFormat(string path)
         {
-            bool isFileInValidFormat = false;
+            bool isFileInValidFormat = true;
 
             return isFileInValidFormat;
         }
