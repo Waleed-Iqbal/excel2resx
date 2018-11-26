@@ -61,7 +61,7 @@ namespace ResxFileFromExcel
             // btn_Generate_resx
             // 
             this.btn_Generate_resx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Generate_resx.Location = new System.Drawing.Point(371, 276);
+            this.btn_Generate_resx.Location = new System.Drawing.Point(371, 278);
             this.btn_Generate_resx.Name = "btn_Generate_resx";
             this.btn_Generate_resx.Size = new System.Drawing.Size(98, 27);
             this.btn_Generate_resx.TabIndex = 16;
