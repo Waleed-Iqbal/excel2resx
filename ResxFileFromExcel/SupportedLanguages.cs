@@ -11,18 +11,24 @@ namespace ResxFileFromExcel
         public bool IsSelected;
         public string FileName;
     }
+
+
+    public static class OutputFileNames
+    {
+        public const string Greek = Constants.GREEK_SHORT_LOWER + "-" + Constants.GREEK_SHORT_UPPER;
+        public const string Dutch = Constants.DUTCH_SHORT_LOWER + "-" + Constants.DUTCH_SHORT_UPPER;
+        public const string German = Constants.GERMAN_SHORT_LOWER + "-" + Constants.GERMAN_SHORT_UPPER;
+        public const string French = Constants.FRENCH_SHORT_LOWER + "-" + Constants.FRENCH_SHORT_UPPER;
+        public const string English = Constants.ENGLISH_SHORT_LOWER + "-" + Constants.ENGLISH_SHORT_UPPER;
+        public const string Spanish = Constants.SPANISH_SHORT_LOWER + "-" + Constants.SPANISH_SHORT_UPPER;
+        public const string Swedish = Constants.SWEDISH_SHORT_LOWER + "-" + Constants.SWEDISH_SHORT_UPPER;
+        public const string Italian = Constants.ITALIAN_SHORT_LOWER + "-" + Constants.ITALIAN_SHORT_UPPER;
+        public const string Norwegian = Constants.NORWEGIAN_SHORT_LOWER + "-" + Constants.NORWEGIAN_SHORT_UPPER;
+        public const string Portuguese = Constants.PORTUGUESE_SHORT_LOWER + "-" + Constants.PORTUGUESE_SHORT_UPPER;
+    }
+
     public static class SupportedLangues
     {
-        public const string Greek = "el";
-        public const string Dutch = "nl";
-        public const string German = "de";
-        public const string French = "fr";
-        public const string English = "en";
-        public const string Spanish = "es";
-        public const string Swedish = "sv";
-        public const string Italian = "it";
-        public const string Norwegian = "nb";
-        public const string Portuguese = "pt";
 
         //TODO: use the int logic here ... LOOK IT UP
         public static bool GreekSelected = false;
@@ -37,18 +43,17 @@ namespace ResxFileFromExcel
         public static bool PortugueseSelected = false;
 
 
-        public static Dictionary<string, FileInfo> localizationFileNames = new Dictionary<string, FileInfo>() {
-            { SupportedLangues.Greek, new FileInfo(){ FileName = $"{SupportedLangues.Greek}-GR", IsSelected=GreekSelected } },
-            { SupportedLangues.Dutch,  new FileInfo(){ FileName = $"{SupportedLangues.Dutch}-BE", IsSelected=DutchSelected } },
-            { SupportedLangues.German, new FileInfo(){ FileName = $"{SupportedLangues.German}-DE", IsSelected=GermanSelected } },
-            { SupportedLangues.French, new FileInfo(){ FileName = $"{SupportedLangues.French}-FR", IsSelected=FrenchSelected } },
-            { SupportedLangues.Spanish, new FileInfo(){ FileName = $"{SupportedLangues.Spanish}-ES", IsSelected=SpanishSelected  } },
-            { SupportedLangues.Swedish, new FileInfo(){ FileName = $"{SupportedLangues.Swedish}-SV", IsSelected=SwedishSelected} },
-            { SupportedLangues.Italian, new FileInfo(){ FileName = $"{SupportedLangues.Italian}-IT", IsSelected=ItalianSelected } },
-            { SupportedLangues.English, new FileInfo(){ FileName = $"{SupportedLangues.English}-GB", IsSelected=EnglishSelected } },
-            { SupportedLangues.Norwegian, new FileInfo(){ FileName = $"{SupportedLangues.Norwegian}-NB", IsSelected=NorwegianSelected } },
-            { SupportedLangues.Portuguese, new FileInfo(){ FileName = $"{SupportedLangues.Portuguese}-PT", IsSelected=PortugueseSelected } }
+        public static Dictionary<string, FileInfo> localizationFilesInfo = new Dictionary<string, FileInfo>() {
+            { Constants.GREEK, new FileInfo(){ FileName = OutputFileNames.Greek, IsSelected=GreekSelected } },
+            { Constants.DUTCH,  new FileInfo(){ FileName = OutputFileNames.Dutch, IsSelected=DutchSelected } },
+            { Constants.GERMAN, new FileInfo(){ FileName = OutputFileNames.German, IsSelected=GermanSelected } },
+            { Constants.FRENCH, new FileInfo(){ FileName = OutputFileNames.French, IsSelected=FrenchSelected} },
+            { Constants.SPANISH, new FileInfo(){ FileName = OutputFileNames.Spanish, IsSelected=SpanishSelected } },
+            { Constants.SWEDISH, new FileInfo(){ FileName = OutputFileNames.Swedish, IsSelected=SwedishSelected } },
+            { Constants.ITALIAN, new FileInfo(){ FileName = OutputFileNames.Italian, IsSelected=ItalianSelected } },
+            { Constants.ENGLISH, new FileInfo(){ FileName = OutputFileNames.English, IsSelected=EnglishSelected } },
+            { Constants.NORWEGIAN, new FileInfo(){ FileName = OutputFileNames.Norwegian, IsSelected=NorwegianSelected } },
+            { Constants.PORTUGUESE, new FileInfo(){ FileName = OutputFileNames.Portuguese, IsSelected=PortugueseSelected} }
         };
-
     }
 }
