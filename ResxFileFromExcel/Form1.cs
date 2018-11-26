@@ -34,6 +34,7 @@ namespace ResxFileFromExcel
         private void Log(string log)
         {
             tb_generationLog.Text += $"{Environment.NewLine} {log}";
+            // The following scrolls the log to bottom to show the latest addition in the log
             tb_generationLog.SelectionStart = tb_generationLog.Text.Length;
             tb_generationLog.ScrollToCaret();
         }
