@@ -111,7 +111,6 @@ namespace ResxFileFromExcel
             }
         }
 
-
         private void Generate_resx_Click(object sender, EventArgs e)
         {
             if (InputValidations.ArePathsInputsValid() &&
@@ -125,6 +124,11 @@ namespace ResxFileFromExcel
             {
                 MessageBox.Show(Constants.INVALID_INPUT_FILE_ERROR, "Invalid Input File", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void ClearLog()
+        {
+            tb_generationLog.Clear();
         }
 
         #region Language Check Boxes Handlers
@@ -323,19 +327,27 @@ namespace ResxFileFromExcel
             SupportedLangues.GreekSelected = cb_Greek.Checked;
             UpdateLanguageSelection();
         }
-        #endregion Language Check Boxes Handler
+        #endregion Language Check Boxes Handler      
 
-        private void ClearLog()
-        {
-            tb_generationLog.Clear();
-        }
 
-        private void Close_Click(object sender, EventArgs e)
+        #region Application Closing Handlers
+        private void ApplicationClosingHandler()
         {
             GC.Collect();
             GC.WaitForPendingFinalizers();
             Application.Exit();
         }
+
+        private void Close_Click(object sender, EventArgs e)
+        {
+            ApplicationClosingHandler();
+        }
+
+        private void resxGenerator_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ApplicationClosingHandler();
+        }
+        #endregion Application Closing Handlers
 
     }
 }
