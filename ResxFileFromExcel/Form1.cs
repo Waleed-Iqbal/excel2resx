@@ -19,8 +19,8 @@ namespace ResxFileFromExcel
         {
             InitializeComponent();
             btn_Generate_resx.Enabled = false;
-            tb_input_excel_path.Text = @"D:\ResxFileFromExcel\ResxFileFromExcel\SampleInput.xlsx";
-            tb_output_resx_path.Text = @"C:\Users\Allaudin\Desktop\Rough";
+            //tb_input_excel_path.Text = @"D:\ResxFileFromExcel\ResxFileFromExcel\SampleInput.xlsx";
+            //tb_output_resx_path.Text = @"C:\Users\Allaudin\Desktop\Rough";
         }
 
         private void EnableGenerateButton()
@@ -69,7 +69,7 @@ namespace ResxFileFromExcel
             }
             else
             {
-                MessageBox.Show(Constants.INVALID_INPUT_FILE_PATH_ERROR, "Invalid Input File", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Constants.INVALID_INPUT_FILE_PATH_ERROR, Constants.INVALID_INPUT_FILE_PATH_ERROR_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 tb_input_excel_path.Text = string.Empty;
             }
         }
@@ -82,7 +82,7 @@ namespace ResxFileFromExcel
             }
             else
             {
-                MessageBox.Show(Constants.INVALID_OUTPUT_DIRECTORY_PATH_ERROR, "Invalid output folder", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Constants.INVALID_OUTPUT_DIRECTORY_PATH_ERROR, Constants.INVALID_OUTPUT_DIRECTORY_PATH_ERROR_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 tb_output_resx_path.Text = string.Empty;
             }
         }

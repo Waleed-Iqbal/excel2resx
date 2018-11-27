@@ -9,9 +9,11 @@ namespace ResxFileFromExcel
     public static class Constants
     {
         public const string INVALID_INPUT_FILE_PATH_ERROR = "Not a valid input excel file";
+        public const string INVALID_INPUT_FILE_PATH_ERROR_TITLE = "Invalid output folder";        
         public const string INVALID_INPUT_FILE_ERROR = "Given excel file is not in correct format";
 
         public const string INVALID_OUTPUT_DIRECTORY_PATH_ERROR = "Not a valid output folder";
+        public const string INVALID_OUTPUT_DIRECTORY_PATH_ERROR_TITLE = "Invalid output folder";
 
 
         public const string ERROR = "Error";
