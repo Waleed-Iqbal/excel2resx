@@ -330,9 +330,10 @@ namespace ResxFileFromExcel
             tb_generationLog.Clear();
         }
 
-
         private void Close_Click(object sender, EventArgs e)
         {
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
             Application.Exit();
         }
 
