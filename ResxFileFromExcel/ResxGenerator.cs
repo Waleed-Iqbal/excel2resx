@@ -121,9 +121,9 @@ namespace ResxFileFromExcel
                     if (languagesToSkip.Contains(language))
                         continue;
 
-                    using (ResXResourceWriter generator = new ResXResourceWriter($"{tb_output_resx_path.Text}\\{SupportedLangues.LocalizationFilesInfo[language].FileName}.{Constants.RESOURCE_FILE_EXTENSION}"))
+                    using (ResXResourceWriter generator = new ResXResourceWriter($"{tb_output_resx_path.Text}\\{SupportedLangues.LocalizationFilesInfo[language].FileName}{Constants.RESOURCE_FILE_EXTENSION}"))
                     {
-                        backgroundWorker.ReportProgress((int)CrossThreadActions.Logging, $"{Constants.GENERATING} {language}.{Constants.RESOURCE_FILE_EXTENSION}");
+                        backgroundWorker.ReportProgress((int)CrossThreadActions.Logging, $"{Constants.GENERATING} {language}{Constants.RESOURCE_FILE_EXTENSION}");
                         // reading from languages since first column consist of keys
                         for (int row = 1; ; row++)
                         {

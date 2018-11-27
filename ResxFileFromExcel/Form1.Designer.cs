@@ -62,7 +62,7 @@ namespace ResxFileFromExcel
             // btn_Generate_resx
             // 
             this.btn_Generate_resx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Generate_resx.Location = new System.Drawing.Point(328, 278);
+            this.btn_Generate_resx.Location = new System.Drawing.Point(361, 278);
             this.btn_Generate_resx.Name = "btn_Generate_resx";
             this.btn_Generate_resx.Size = new System.Drawing.Size(98, 27);
             this.btn_Generate_resx.TabIndex = 16;
@@ -77,7 +77,7 @@ namespace ResxFileFromExcel
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tb_input_excel_path.Location = new System.Drawing.Point(14, 41);
             this.tb_input_excel_path.Name = "tb_input_excel_path";
-            this.tb_input_excel_path.Size = new System.Drawing.Size(331, 20);
+            this.tb_input_excel_path.Size = new System.Drawing.Size(364, 20);
             this.tb_input_excel_path.TabIndex = 1;
             this.tb_input_excel_path.TextChanged += new System.EventHandler(this.input_excel_path_TextChanged);
             // 
@@ -105,7 +105,7 @@ namespace ResxFileFromExcel
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tb_output_resx_path.Location = new System.Drawing.Point(16, 103);
             this.tb_output_resx_path.Name = "tb_output_resx_path";
-            this.tb_output_resx_path.Size = new System.Drawing.Size(329, 20);
+            this.tb_output_resx_path.Size = new System.Drawing.Size(362, 20);
             this.tb_output_resx_path.TabIndex = 3;
             this.tb_output_resx_path.TextChanged += new System.EventHandler(this.output_resx_path_TextChanged);
             // 
@@ -119,13 +119,13 @@ namespace ResxFileFromExcel
             this.tb_generationLog.Name = "tb_generationLog";
             this.tb_generationLog.ReadOnly = true;
             this.tb_generationLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.tb_generationLog.Size = new System.Drawing.Size(407, 210);
+            this.tb_generationLog.Size = new System.Drawing.Size(440, 175);
             this.tb_generationLog.TabIndex = 17;
             // 
             // btn_BrowseInputFile
             // 
             this.btn_BrowseInputFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_BrowseInputFile.Location = new System.Drawing.Point(351, 39);
+            this.btn_BrowseInputFile.Location = new System.Drawing.Point(384, 39);
             this.btn_BrowseInputFile.Name = "btn_BrowseInputFile";
             this.btn_BrowseInputFile.Size = new System.Drawing.Size(75, 23);
             this.btn_BrowseInputFile.TabIndex = 2;
@@ -136,7 +136,7 @@ namespace ResxFileFromExcel
             // btn_BrowseForOutput
             // 
             this.btn_BrowseForOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_BrowseForOutput.Location = new System.Drawing.Point(352, 101);
+            this.btn_BrowseForOutput.Location = new System.Drawing.Point(385, 101);
             this.btn_BrowseForOutput.Name = "btn_BrowseForOutput";
             this.btn_BrowseForOutput.Size = new System.Drawing.Size(75, 23);
             this.btn_BrowseForOutput.TabIndex = 4;
@@ -261,7 +261,7 @@ namespace ResxFileFromExcel
             this.gb_SelectLanguages.Controls.Add(this.panel_SelectLanguages);
             this.gb_SelectLanguages.Location = new System.Drawing.Point(17, 139);
             this.gb_SelectLanguages.Name = "gb_SelectLanguages";
-            this.gb_SelectLanguages.Size = new System.Drawing.Size(409, 126);
+            this.gb_SelectLanguages.Size = new System.Drawing.Size(442, 126);
             this.gb_SelectLanguages.TabIndex = 19;
             this.gb_SelectLanguages.TabStop = false;
             this.gb_SelectLanguages.Text = "Select Languages";
@@ -282,7 +282,7 @@ namespace ResxFileFromExcel
             this.panel_SelectLanguages.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_SelectLanguages.Location = new System.Drawing.Point(3, 16);
             this.panel_SelectLanguages.Name = "panel_SelectLanguages";
-            this.panel_SelectLanguages.Size = new System.Drawing.Size(403, 107);
+            this.panel_SelectLanguages.Size = new System.Drawing.Size(436, 107);
             this.panel_SelectLanguages.TabIndex = 19;
             // 
             // cb_SelectAll
@@ -308,7 +308,7 @@ namespace ResxFileFromExcel
             // Close
             // 
             this.Close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Close.Location = new System.Drawing.Point(340, 541);
+            this.Close.Location = new System.Drawing.Point(373, 506);
             this.Close.Name = "Close";
             this.Close.Size = new System.Drawing.Size(87, 23);
             this.Close.TabIndex = 18;
@@ -326,7 +326,7 @@ namespace ResxFileFromExcel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(447, 573);
+            this.ClientSize = new System.Drawing.Size(480, 538);
             this.Controls.Add(this.Close);
             this.Controls.Add(this.lbl_GenerationLog);
             this.Controls.Add(this.gb_SelectLanguages);
