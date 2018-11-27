@@ -7,85 +7,94 @@ using System.Resources;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Windows.Forms;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 
 namespace ResxFileFromExcel
 {
     public partial class resxGenerator : Form
     {
-
-        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        private enum CrossThreadActions
         {
-            switch (e.ProgressPercentage)
+            Logging,
+            EnableDisableControls,
+            ClearLog
+        }
+
+        private void backgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            CrossThreadActions action = (CrossThreadActions)e.ProgressPercentage;
+            switch (action)
             {
-                case 0:
+                case CrossThreadActions.Logging:
                     Log(e.UserState.ToString());
                     break;
-                case 1:
+                case CrossThreadActions.EnableDisableControls:
                     EnableAllUIControls((bool)e.UserState);
                     break;
-                case 2:
+                case CrossThreadActions.ClearLog:
                     ClearLog();
                     break;
             }
         }
 
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
+            List<string> languagesToSkip = new List<string>();
+            List<string> localizationKeys = new List<string>();
+            List<string> languageFilesGenerated = new List<string>();
+            List<string> languagesSelectedFromUI = new List<string>();
+            List<string> languagesAvailableInExcelSheet = new List<string>();
+            List<string> allLanguages = SupportedLangues.LocalizationFilesInfo.Keys.ToList();
+
+            int totalLanguages = SupportedLangues.LocalizationFilesInfo.Count;
+
+            int totalKeys = 0;
+            int totalLanguagesInExcelSheet = 0;
+            int languagesStartingColumnInExcelSheet = 2;
+            int localizationKeysColumnIndexInExcelSheet = 1;
+            int rowNumberContainingTheColumnHeadersInExcelSheet = 1;
+            int languagesEndingColumnIndex = languagesStartingColumnInExcelSheet + totalLanguages;
+
+            Excel.Range xlRange = null;
+            Excel.Application xlApp = null;
+            Excel.Workbook xlWorkbook = null;
+            Excel.Worksheet xlWorksheet = null;
+
             var backgroundWorker = (BackgroundWorker)sender;
-
-            backgroundWorker.ReportProgress(2, false);
-
             try
             {
-                backgroundWorker.ReportProgress(1, false);
+                backgroundWorker.ReportProgress((int)CrossThreadActions.ClearLog, false);
 
-                Excel.Application xlApp = new Excel.Application();
-                Excel.Workbook xlWorkbook = xlApp.Workbooks.Open(tb_input_excel_path.Text);
-                Excel.Worksheet xlWorksheet = xlWorkbook.Sheets[1];
-                Excel.Range xlRange = xlWorksheet.UsedRange;
+                // the following order matters
+                xlApp = new Excel.Application();
+                xlWorkbook = xlApp.Workbooks.Open(tb_input_excel_path.Text);
+                xlWorksheet = xlWorkbook.Sheets[1];
+                xlRange = xlWorksheet.UsedRange;
 
-                List<string> languagesToSkip = new List<string>();
-                List<string> localizationKeys = new List<string>();
-                List<string> allLanguages = SupportedLangues.LocalizationFilesInfo.Keys.ToList();
-                List<string> languagesAvailableInExcelSheet = new List<string>();
-                List<string> languagesSelectedFromUI = new List<string>();
-                List<string> languageFilesGenerated = new List<string>();
+                backgroundWorker.ReportProgress((int)CrossThreadActions.EnableDisableControls, false);
+                backgroundWorker.ReportProgress((int)CrossThreadActions.Logging, $"{Constants.STARTED}{Environment.NewLine}");
 
-                int totalLanguages = SupportedLangues.LocalizationFilesInfo.Count;
-                int totalKeys = 0;
-                int totalLanguagesInExcelSheet = 0;
-
-                backgroundWorker.ReportProgress(0, $"{Constants.STARTED}{Environment.NewLine}");
-
-                for (int col = 2; ; col++)
+                for (int col = languagesStartingColumnInExcelSheet; ; col++)
                 {
-                    if (xlRange.Cells[1, col] == null || xlRange.Cells[1, col].Value2 == null || xlRange.Cells[1, col].Value2.ToString() == "")
+                    if (xlRange.Cells[rowNumberContainingTheColumnHeadersInExcelSheet, col] == null ||
+                        xlRange.Cells[rowNumberContainingTheColumnHeadersInExcelSheet, col].Value2 == null ||
+                        xlRange.Cells[rowNumberContainingTheColumnHeadersInExcelSheet, col].Value2.ToString() == "")
                         break; // reached end of excel sheet's available columns
 
-                    languagesAvailableInExcelSheet.Add(xlRange.Cells[1, col].Value2.ToString());
+                    languagesAvailableInExcelSheet.Add(xlRange.Cells[rowNumberContainingTheColumnHeadersInExcelSheet, col].Value2.ToString());
                 }
                 totalLanguagesInExcelSheet = languagesAvailableInExcelSheet.Count;
 
 
                 for (int row = 1; ; row++)
                 {
-                    if (xlRange.Cells[row, 1] != null && xlRange.Cells[row, 1].Value2 != null)
-                        localizationKeys.Add(xlRange.Cells[row, 1].Value2.ToString());
+                    if (xlRange.Cells[row, localizationKeysColumnIndexInExcelSheet] != null &&
+                        xlRange.Cells[row, localizationKeysColumnIndexInExcelSheet].Value2 != null)
+                            localizationKeys.Add(xlRange.Cells[row, localizationKeysColumnIndexInExcelSheet].Value2.ToString());
                     else
                         break;
                 }
                 totalKeys = localizationKeys.Count;
-
-
-                // Excel to 2D array (TEST IF THIS IS FASTER THAN ACCESSING EXCEL EVERY TIME GENERATING A resx FILE)
-                //string[,] excelDataArray = new string[totalKeys + 1, totalLanguagesInExcelSheet + 1];
-                //for (int row = 1; row <= totalKeys; row++)
-                //{
-                //    for (int col = 1; col <= totalLanguagesInExcelSheet; col++)
-                //    {
-                //        excelDataArray[row - 1, col - 1] = xlRange.Cells[row, col].Value2.ToString();
-                //    }
-                //}
 
                 UpdateSupportedLanguagesSelection();
                 foreach (string key in SupportedLangues.LocalizationFilesInfo.Keys)
@@ -102,19 +111,19 @@ namespace ResxFileFromExcel
                 {
                     if (!languagesAvailableInExcelSheet.Contains(selectedLanguage))
                     {
-                        backgroundWorker.ReportProgress(0, $"{Constants.ERROR.ToUpper()}: {selectedLanguage} {Constants.TRANSLATION_NOT_AVAILABLE_IN_EXCEL_SHEET}.{Environment.NewLine}");
+                        backgroundWorker.ReportProgress((int)CrossThreadActions.Logging, $"{Constants.ERROR.ToUpper()}: {selectedLanguage} {Constants.TRANSLATION_NOT_AVAILABLE_IN_EXCEL_SHEET}.{Environment.NewLine}");
                     }
                 }
 
-                for (int col = 2; col <= totalLanguages; col++)
+                for (int col = languagesStartingColumnInExcelSheet; col < languagesEndingColumnIndex; col++)
                 {
-                    string language = xlRange.Cells[1, col].Value2.ToString();
+                    string language = xlRange.Cells[rowNumberContainingTheColumnHeadersInExcelSheet, col].Value2.ToString();
                     if (languagesToSkip.Contains(language))
                         continue;
 
                     using (ResXResourceWriter generator = new ResXResourceWriter($"{tb_output_resx_path.Text}\\{SupportedLangues.LocalizationFilesInfo[language].FileName}.{Constants.RESOURCE_FILE_EXTENSION}"))
                     {
-                        backgroundWorker.ReportProgress(0, $"{Constants.GENERATING} {language}.{Constants.RESOURCE_FILE_EXTENSION}");
+                        backgroundWorker.ReportProgress((int)CrossThreadActions.Logging, $"{Constants.GENERATING} {language}.{Constants.RESOURCE_FILE_EXTENSION}");
                         // reading from languages since first column consist of keys
                         for (int row = 1; ; row++)
                         {
@@ -127,17 +136,26 @@ namespace ResxFileFromExcel
                         languageFilesGenerated.Add(language);
                     }
                 }
-
-                backgroundWorker.ReportProgress(0, $"{Environment.NewLine} {Constants.FINISHED}");
-                backgroundWorker.ReportProgress(1, true);
             }
             catch (Exception ex)
             {
-                tb_generationLog.Text += Environment.NewLine + ex.Message;
+                backgroundWorker.ReportProgress((int)CrossThreadActions.Logging, $"{Environment.NewLine} {ex.Message}.{Environment.NewLine}");
                 EnableAllUIControls(true);
             }
+            finally
+            {
+                Marshal.FinalReleaseComObject(xlRange);
+                Marshal.FinalReleaseComObject(xlWorksheet);
 
+                xlWorkbook.Close(Type.Missing, Type.Missing, Type.Missing);
+                Marshal.FinalReleaseComObject(xlWorkbook);
+
+                xlApp.Quit();
+                Marshal.FinalReleaseComObject(xlApp);
+
+                backgroundWorker.ReportProgress((int)CrossThreadActions.Logging, $"{Environment.NewLine} {Constants.FINISHED}");
+                backgroundWorker.ReportProgress((int)CrossThreadActions.EnableDisableControls, true);
+            }
         }
-
     }
 }
