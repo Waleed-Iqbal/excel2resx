@@ -128,7 +128,7 @@ namespace ResxFileFromExcel
                     }
                 }
 
-                backgroundWorker.ReportProgress(0, $"{Environment.NewLine}{Constants.FINISHED}");
+                backgroundWorker.ReportProgress(0, $"{Environment.NewLine} {Constants.FINISHED}");
                 backgroundWorker.ReportProgress(1, true);
             }
             catch (Exception ex)
